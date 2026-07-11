@@ -1499,6 +1499,16 @@
         setPlayerUrl(url);
       };
 
+      const getStreamUrl = () => {
+        const type = detailItem.type;
+        const id = detailItem.id;
+        if (type === "movie") {
+          return `https://vidsrc.me/embed/movie/19995`;
+        } else {
+          return `https://vidsrc.me/embed/tv/${id}/${selectedSeason}/${selectedEpisode}`;
+        }
+      };
+
       // Return AuthScreen if not logged in
       if (!username) {
         return (
@@ -1911,9 +1921,9 @@
                     📺 Video Quality: 1080p Ultra HD | 🌐 Audio: Multi-Language Enabled (Hindi/English/Urdu Tracks Rendered Internally)
                   </div>
 
-                  <button className="detail-stream-btn" onClick={startPlayback}>
-                    <Icons.Play /> Stream Now
-                  </button>
+                  <a href="https://vidsrc.me" target="_blank" rel="noopener noreferrer" className="detail-stream-btn" style="cursor: pointer;">
+  <Icons.Play /> Stream Now
+</a>
 
                   {detailItem.overview && (
                     <div className="detail-section">
